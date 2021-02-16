@@ -1,0 +1,32 @@
+{
+    "name": "tab capture test",
+    "description": "Manifest v3 tab capture test",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "permissions": ["tabs", "activeTab", "tabCapture"],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "commands": {
+        "test-tab-capture": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+K",
+                "mac": "Command+Shift+K"
+            },
+            "description": "test tab capture"
+        }
+    },
+    "action": {
+        "default_title": "tab capture test",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
